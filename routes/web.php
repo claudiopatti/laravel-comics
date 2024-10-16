@@ -18,5 +18,11 @@ Route::get('/', function () {
 
     $titlesHeader = config('titlesHeader');
 
-    return view('welcome', compact('comics', 'titlesHeader'));
+    $mainicones = config('mainicones');
+
+    $infofooter = config('infofooter');
+
+
+
+    return view('welcome', compact('comics', 'titlesHeader', 'mainicones', 'infofooter'));
 });

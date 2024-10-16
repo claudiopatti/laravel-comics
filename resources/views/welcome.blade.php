@@ -25,34 +25,44 @@
         <header>
 
             <div class="header-top ">
-                <div class="container d-flex justify-content-end text-white py-2">
-                    <div class="pe-5">
+                <div class="container d-flex justify-content-end text-white py-2 ">
+                    <a href="#" class="pe-5 text-white text-decoration-none ">
                         DC POWER VISA<i class="fa-regular fa-registered"></i>
-                    </div>
+                    </a>
 
-                    <div class="pe-5">
+                    <a href="#" class="text-white text-decoration-none">
                         ADDITIONAL DC SITES <i class="fa-solid fa-caret-down"></i>
-                    </div>
+                    </a>
     
                 </div>
 
             </div>
 
-            <div class="container">
-                <div class="imageContainer">
+            <div class="container d-flex  align-items-center justify-content-between ">
+                <div class="py-2">
                     <img src="{{ Vite::asset('resources/img/dc-logo.png')}}" alt="logo dc">
                 </div>
         
-                <div class="infoHeader">
-                    <ul>
-                        @foreach ($titlesHeader as $title)
-                        <li>
-                            <a :href="{{ $title['url']}}">
-                                {{ $title['title']}}
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
+                <div class="d-flex align-items-center " >
+                    <div>
+                        <ul class=" mb-0 pe-5 d-flex align-items-center" >
+                            @foreach ($titlesHeader as $title)
+                            <li class=" px-3 fw-bold ">
+                                <a href="{{ $title['url']}}" class="text-decoration-none text-black">
+                                    {{ $title['title']}}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+
+                    </div>
+                    <div>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                        
+                    </div>
                 </div>
 
             </div>
@@ -60,20 +70,119 @@
 
         <main>
 
-            <div class="container">
-                <div class="row">
-                    @foreach ($comics as $comic)
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-2 g-3">
-                            <img src="{{ $comic['thumb'] }}" alt="">
+            <div class="background-jumbotron">
+                <div class="container">
+                    <div class="buttonCurrentSeries">
+                        <button>
+                            CURRENT SERIES
+                        </button>
 
-                            <div>
-                                <p> {{ $comic['title'] }}</p>
-                            </div>
-                        </div>
-                    @endforeach
                     </div>
+                </div>
             </div>
+
+            <div class="bg-black">
+                <div class="container pt-4">
+                    <div class="row">
+                        @foreach ($comics as $comic)
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-2 g-3 ">
+                                <img class="h-75 w-100" src="{{ $comic['thumb'] }}" alt="">
+    
+                                <div class="text-white pt-3">
+                                    <p> {{ $comic['title'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+    
+                    <div class="buttonLoad">
+                        <button>
+                            LOAD MORE
+                        </button>
+        
+                    </div>
+    
+                </div>
+
+            </div>
+
+            <section class="sectionMainBottom">
+                <div class="container py-4">
+                    <div class="infoMain">
+                        <ul class="d-flex justify-content-around">
+                        @foreach ($mainicones as $icone)
+                            <li class="d-flex align-items-center card-icone">
+                                <img src="{{ Vite::asset($icone['image'])}}" alt="{{$icone['text']}} h-25">
+
+                                <a href="{{$icone['url']}}" class="text-decoration-none text-white ps-2">
+                                    {{ $icone['text'] }}
+                                </a>
+                            </li>
+                        @endforeach
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
         </main>
+
+        <footer>
+            <section class="fistSectionFooter">
+                <div class="container">
+                    <div class="containerListInfofooter">
+                        <div class="listInfoFooter">
+                        <ul>
+                            <h3>DC Comics</h3>
+                            @foreach (config('infofooter.dcComicsFooter') as $item)
+                                <li>
+                                    <a href="{{ $item['url'] }}" class="text-decoration-none text-black opacity-75">
+                                        {{ $item['title'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <ul>
+                            <h3>DC Footer</h3>
+                            @foreach (config('infofooter.dcFooter') as $item)
+                                <li>
+                                    <a href="{{ $item['url'] }}" class="text-decoration-none text-black opacity-75">
+                                        {{ $item['title'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <ul>
+                            <h3>Sites Footer</h3>
+                            @foreach (config('infofooter.sitesFooter') as $item)
+                                <li>
+                                    <a href="{{ $item['url'] }}" class="text-decoration-none text-black opacity-75">
+                                        {{ $item['title'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <ul>
+                            <h3>Shop Footer</h3>
+                            @foreach (config('infofooter.shopFooter') as $item)
+                                <li>
+                                    <a href="{{ $item['url'] }}" class="text-decoration-none text-black opacity-75">
+                                        {{ $item['title'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
     
     </body>
 </html>
