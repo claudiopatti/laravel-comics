@@ -20,11 +20,17 @@
     <body>
         <main>
 
-            <h1>
-                ciao
-            </h1>
-            <div>
-                <img src="{{ Vite::asset('resources/img/micino.jpeg') }}" style="height: 300px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>
+                            ciao
+                        </h1>
+                        <div>
+                            <img src="{{ Vite::asset('resources/img/micino.jpeg') }}" style="height: 300px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     
